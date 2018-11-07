@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/accountPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Choose Account"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/queryCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Query Calendar"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/modifyCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Modify Calendar"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/createEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Create Event in Calendar"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/updateEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Update Event in Calendar"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/deleteEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Delete Event in Calendar"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/reminderEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Reminder Event in Calendar"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>
