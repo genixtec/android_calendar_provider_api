@@ -16,6 +16,7 @@ import com.google.android.gms.auth.GoogleAuthUtil
 import com.google.android.gms.common.AccountPicker
 import android.content.Intent
 import android.util.Log
+import android.widget.Toast
 import java.util.*
 
 @Suppress("UNUSED_VARIABLE")
@@ -92,7 +93,11 @@ class MainActivity : AppCompatActivity() {
                         curs.getString(
                             curs.getColumnIndex(CalendarContract.Calendars.OWNER_ACCOUNT)
                         )
-                    Log.d(TAG, ownerName)
+                    Toast.makeText(
+                        this,
+                        "Calendar Details Queried.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
@@ -110,6 +115,11 @@ class MainActivity : AppCompatActivity() {
                 )
             val rows: Int = contentResolver.update(updateUri, values, null, null)
             Log.i(TAG, "Rows updated: $rows")
+            Toast.makeText(
+                this,
+                "Calendar Display Name Changed.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
         // Create Event in Calendar
@@ -131,6 +141,7 @@ class MainActivity : AppCompatActivity() {
             val uri: Uri = contentResolver.insert(CalendarContract.Events.CONTENT_URI, values)!!
             val eventID: Long = uri.lastPathSegment!!.toLong()
             prefs.edit().putLong("EventId", eventID).apply()
+            Toast.makeText(this, "Event Created", Toast.LENGTH_SHORT).show()
         }
 
         // Update Calendar Event
@@ -144,6 +155,7 @@ class MainActivity : AppCompatActivity() {
                 ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventId)
             val rows: Int = contentResolver.update(updateUri, values, null, null)
             Log.i(TAG, "Rows updated: $rows")
+            Toast.makeText(this, "Event Updated.", Toast.LENGTH_SHORT).show()
         }
 
         // Delete Calendar Event
@@ -153,6 +165,7 @@ class MainActivity : AppCompatActivity() {
                 ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventId)
             val rows: Int = contentResolver.delete(deleteUri, null, null)
             Log.i(TAG, "Rows deleted: $rows")
+            Toast.makeText(this, "Event Deleted.", Toast.LENGTH_SHORT).show()
         }
 
         // Set an Reminder for Event. It will alert before in given minutes from the event
@@ -168,6 +181,11 @@ class MainActivity : AppCompatActivity() {
             val uri: Uri = contentResolver.insert(CalendarContract.Reminders.CONTENT_URI, values)!!
             val eventID: Long = uri.lastPathSegment!!.toLong()
             Log.i(TAG, eventID.toString())
+            Toast.makeText(
+                this,
+                "Remind before 1 minute from the event start time",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
@@ -182,6 +200,7 @@ class MainActivity : AppCompatActivity() {
             accountName = data!!.getStringExtra(AccountManager.KEY_ACCOUNT_NAME)
             accountType = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE)
             Log.d(TAG, accountName)
+            Toast.makeText(this, "Account Selected.", Toast.LENGTH_SHORT).show()
         }
     }
 }
